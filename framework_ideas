@@ -1,0 +1,38 @@
+base areas for application manipulation:
+1) PLT/GOT
+
+2) system calls
+a. requires diassembly, syscall locating, and application modifications
+   1) maybe check size of the system call calls.. determine if we can drop in some jmp, or call
+   to a newly allocated piece of memory
+   2) realign the application and rewrite the binary either to disk, or in memory modifications
+   replacing the system call with a call, or jmp
+
+languages for modules:
+1) C
+a. fastest
+2) LUA
+b. semi-fast
+3) Python
+c. slow
+
+lxcore_helper loading into target applications:
+1) ptrace
+2) LD_PRELOAD
+
+---
+
+lxcore_helper methods of loading into target applications:
+1) library modifications 
+a. proxying a library
+b. adding another library to the ELF format
+c. LD_PRELOAD universal variable
+c1. Could check against a list of applications, and modules
+
+2) injection / debugger
+a. poll process list
+b. start paused, and attach debugger then load lxcore_helper
+
+3) replacing the application with a script
+a. replace 'nginx' with script to perform #2
+

@@ -1,0 +1,17 @@
+Linux subsystem for Windows is a great advancement allowing many applications to work seemlessly without modification.  It is fairly new
+with a big enough road map to take some time for every system call to get developed. Linux is a very modular operating system.  The
+structure of ELF, and the operating system framework is enough to offer alternative options than waiting for Microsoft'seemlessly
+developers to complete very specific system calls.  I'm hoping that this gives a solution that can work for most.  I'd like to use
+it to solve some X related issues, and various system calls.
+
+It will approach things in a couple of ways.  One way would be to replace a function's PLT/GOT address with a custom function that can
+actually perform the task.  This is not on the system call level which would be a lower level due to residing in the kernel.  It will
+not work for everything, although it can be 50% of whats required.  The second type would be possible by disassembling the application,
+finding system calls being executed, and modifying the code to perform some other tasks.  It is a bit harder to accomplish due to requiring
+assembly alignments.  Several projects offer solutions for this, and some are even python scripts.  It will allow issues such as weird,
+or bad arguments and others to have real time modifications to get those binaries executed as quickly as possible.  The Microsoft
+development team wouldn't have to test, and verify the community needs the changes.
+
+Each of these approaches could be performed in several languages.  It could happen in C, LUA, or Python depending on the speed requirements.
+The framework itself will focus on offering the two approaches as a simplified arrangement for an endusers to supply a module for their
+functions.  I'll include some example functions, and maybe allow uploading for sharing with other users.
