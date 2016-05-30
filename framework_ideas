@@ -36,3 +36,11 @@ b. start paused, and attach debugger then load lxcore_helper
 3) replacing the application with a script
 a. replace 'nginx' with script to perform #2
 
+modules:
+1. basic argument modifications
+a. example: nginx (found this randomly)
+   https://github.com/Microsoft/BashOnWindows/issues/444
+   I haven't checked but I'm assuming this could be fixed with a simple stripping of
+   whichever argument caused the issue.  This could be a very simple fix, and may not
+   even require a separate 'module' to handle anything.  Cases like this can be integrated
+   directly into the framework's configuration files.
